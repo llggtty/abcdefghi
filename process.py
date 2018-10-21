@@ -2,7 +2,6 @@
 import itertools 
 import numpy as np
 
-
 # first find out the range of i
 np.floor(9876/1234) # 8
 # idea is to iterate the number n1 and n2, where n1>n2 
@@ -17,7 +16,7 @@ total = np.array(range(1,10))
 
 for i in range(2,8):    
     for a1 in total[total > i]:
-        for b1 in [int(np.floor(a1/i)),int(np.ceil(a1/i))]:
+        for b1 in list(set([int(np.floor(a1/i)),int(np.ceil(a1/i))]) - set([i])):
             print("i:", i, ", a1:", a1, ", b1:", b1)
             numbers_ab = remain(total, [a1, i , b1])
             
@@ -30,9 +29,4 @@ for i in range(2,8):
                     n2 = 1000*b1 + 100*combo[0] + 10*combo[1] + combo[2]
                     if n1 == int(n2*i):
                         print("!!!Solved!!!!", "i: ",i, "n1: ",n1, "n2: ", n2)
-
-                
-            
-    
-    
-
+                        
